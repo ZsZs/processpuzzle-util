@@ -20,7 +20,7 @@
     <dependency>
       <groupId>com.processpuzzle</groupId>
       <artifactId>processpuzzle-util-ui</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.2</version>
       <scope>compile</scope>
       <type>pom</type>
     </dependency>
