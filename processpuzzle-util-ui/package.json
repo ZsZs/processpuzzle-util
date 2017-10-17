@@ -28,7 +28,6 @@
     "commitmsg": "commitlint -e",
     "codecov": "cat coverage/lcov.info | codecov",
     "prettier": "prettier --write"
-//    "precommit": "lint-staged"
   },
   "lint-staged": {
     "{demo,src,test}/**/*.ts": [
