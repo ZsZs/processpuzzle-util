@@ -27,4 +27,15 @@
     <tag>processpuzzle-util-0.0.2</tag>
   </scm>
 
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <useReleaseProfile>false</useReleaseProfile>
+          <arguments>--no-verify</arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

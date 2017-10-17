@@ -1,6 +1,6 @@
 {
   "name": "processpuzzle-util-ui",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Utility functions for ProcessPuzzle business platform.",
   "main": "./bundles/processpuzzle-util-ui.umd.js",
   "module": "./index.js",
