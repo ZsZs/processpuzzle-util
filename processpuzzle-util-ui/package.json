@@ -28,12 +28,12 @@
     "commitmsg": "commitlint -e",
     "codecov": "cat coverage/lcov.info | codecov",
     "prettier": "prettier --write",
-    "precommit": "lint-staged --no-verify"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "{demo,src,test}/**/*.ts": [
       "npm run prettier",
-      "git add"
+      "git add --no-verify"
     ]
   },
   "config": {
