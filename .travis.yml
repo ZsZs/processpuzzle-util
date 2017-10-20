@@ -55,8 +55,7 @@ before_script:
 - ng --version
 - npm update --prefix ./processpuzzle-util-ui
 script:
-- mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings
-  travis-maven-settings.xml -B
+- mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings travis-maven-settings.xml -e
 deploy:
 - provider: script
   skip_cleanup: true
