@@ -55,8 +55,8 @@ before_script:
 - npm install -g @angular/compiler-cli
 - npm install -g tslint
 - ng --version
+- npm install --prefix ./processpuzzle-util-ui
 - npm update --prefix ./processpuzzle-util-ui
-- ls ./processpuzzle-util-ui
 - ls ./processpuzzle-util-ui/node_modules
 
 script:
