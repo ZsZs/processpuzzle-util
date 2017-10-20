@@ -1,0 +1,12 @@
+package com.processpuzzle.util.application;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class ProcessPuzzleUtilApplication {
+   private static Logger logger = LoggerFactory.getLogger( ProcessPuzzleUtilApplication.class );
+
+   public static void main( String[] args ) {
+      logger.info( "About to start ProcessPuzzle-Util." );
+   }
+}
