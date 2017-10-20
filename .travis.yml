@@ -69,6 +69,6 @@ deploy:
     branch: development
 - provider: script
   skip_cleanup: true
-  script: ./trigger-travis-compose.sh
+  script: bash ./trigger-travis-compose.sh
   on:
     branch: master

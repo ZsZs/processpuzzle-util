@@ -9,4 +9,4 @@ curl -s -X POST \
    -H "Travis-API-Version: 3" \
    -H "Authorization: token BOCIG12CzTTGjIELovP0AQ" \
    -d "$body" \
-   https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
+   https://api.travis-ci.org/repo/ZsZs%2Fprocesspuzzle-compose/requests
