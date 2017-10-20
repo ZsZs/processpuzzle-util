@@ -60,9 +60,15 @@ before_script:
 
 script:
 - mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings travis-maven-settings.xml
+
 deploy:
 - provider: script
   skip_cleanup: true
   script: mvn deploy -Dmaven.test.skip=true --settings travis-maven-settings.xml -B
   on:
     branch: development
+- provider: script
+  skip_cleanup: true
+  script: ./trigger-travis-compose.sh
+  on:
+    branch: master
