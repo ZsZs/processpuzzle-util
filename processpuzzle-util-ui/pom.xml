@@ -12,13 +12,16 @@
 
   <properties>
   </properties>
-  
+
   <build>
     <plugins>
       <plugin>
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
-      </plugin>      
+        <configuration>
+          <skip>${skipFrontEndPluginRun}</skip>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
