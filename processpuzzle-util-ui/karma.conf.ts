@@ -82,7 +82,14 @@ export default (config: any) => {
 
     coverageIstanbulReporter: {
       reports: ['text-summary', 'html', 'lcovonly'],
-      fixWebpackSourcePaths: true
+      dir: 'target/coverage',
+      fixWebpackSourcePaths: true,
+       thresholds: {
+          statements: 100,
+          lines: 100,
+          branches: 100,
+          functions: 100
+       }
     },
 
     mime: {
