@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>processpuzzle-util</artifactId>
   <name>ProcessPuzzle Util</name>
-  <version>0.0.6</version>
+  <version>0.0.7-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -24,7 +24,7 @@
     <url>https://github.com/ZsZs/processpuzzle-util</url>
     <connection>scm:git:https://github.com/ZsZs/processpuzzle-util.git</connection>
     <developerConnection>scm:git:https://github.com/ZsZs/processpuzzle-util.git</developerConnection>
-    <tag>processpuzzle-util-0.0.6</tag>
+    <tag>processpuzzle-util-0.0.3</tag>
   </scm>
 
 </project>
