@@ -32,6 +32,13 @@ describe('TreeNode behaviour', () => {
   const grandChildTwoReferencedObject = 'Grandchild two Ref.';
   let grandChildTwoNode: TreeNode;
 
+  const referencedObjectStub = {
+    myText: 'Grandchild two Ref.',
+    compareWithMe( otherString: string ): boolean {
+      return 'Grandchild two Ref.' === otherString;
+    }
+  };
+    
   beforeEach(() => {
     childOneNode = new TreeNode( childOneName, childOneTitle, childOneReferencedObject );
     childTwoNode = new TreeNode( childTwoName, childTwoTitle, childTwoReferencedObject );
@@ -110,8 +117,8 @@ describe('TreeNode behaviour', () => {
   });
 
   it( 'descendant child can be find by name', () => {
-    expect( rootNode.findDescendantChildByName( grandChildOneName ) ).toBe( grandChildOneNode );
-    expect( rootNode.findDescendantChildByName( grandChildTwoName ) ).toBe( grandChildTwoNode );
+    expect( rootNode.findDescendantChildByName( grandChildOneName )).toBe( grandChildOneNode );
+    expect( rootNode.findDescendantChildByName( grandChildTwoName  )).toBe( grandChildTwoNode );
   });
 
   it( 'child can be find by title', () => {
@@ -121,6 +128,11 @@ describe('TreeNode behaviour', () => {
   it( 'descendant child can be find by title', () => {
     expect( rootNode.findDescendantChildByTitle( grandChildOneTitle ) ).toBe( grandChildOneNode );
     expect( rootNode.findDescendantChildByTitle( grandChildTwoTitle ) ).toBe( grandChildTwoNode );
+  });
+
+  xit( 'descendant child can be find by referenced object', () => {
+    expect( rootNode.findDescendantChildByReferencedObject( referencedObjectStub.compareWithMe ) ).toBe( grandChildOneNode );
+    expect( rootNode.findDescendantChildByReferencedObject( referencedObjectStub.compareWithMe ) ).toBe( grandChildTwoNode );
   });
 
   it( 'can be detached from the parent', () => {

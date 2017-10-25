@@ -53,6 +53,7 @@
     "preversion": "npm run ci",
     "test": "karma start --single-run --code-coverage",
     "test:watch": "karma start --auto-watch --no-single-run --browsers Chrome",
+    "test:watch-c9": "karma start --config karma.c9.js --auto-watch --no-single-run",
     "tslint": "tslint"
   },
   "dependencies": {

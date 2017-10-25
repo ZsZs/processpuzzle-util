@@ -4,10 +4,16 @@ import { JsonMapper } from './json-mapper';
 import { TreeNode } from './tree-node';
 
 describe('JSON Mapper', () => {
-  const TREE_NODE_NAME = 'SampleNode';
-  const TREE_NODE_TITLE = 'Sample node.';
-  const treeNode = new TreeNode( TREE_NODE_NAME, TREE_NODE_TITLE );
-  const jsonObject = { name: 'SampleNode', title: 'Sample node.', children: [] };
+  const TREE_NODE_ONE_NAME = 'SampleNodeOne';
+  const TREE_NODE_ONE_TITLE = 'Sample node one.';
+  const TREE_NODE_TWO_NAME = 'SampleNodeTwo';
+  const TREE_NODE_TWO_TITLE = 'Sample node two.';
+  const treeNodeOne = new TreeNode( TREE_NODE_ONE_NAME, TREE_NODE_ONE_TITLE );
+  const treeNodeTwo = new TreeNode( TREE_NODE_TWO_NAME, TREE_NODE_TWO_TITLE );
+  const treeNodeArray = [ treeNodeOne, treeNodeTwo ];
+  const jsonObjectOne = { name: 'SampleNodeOne', title: 'Sample node one.', children: [] };
+  const jsonObjectTwo = { name: 'SampleNodeTwo', title: 'Sample node two.', children: [] };
+  const jsonObjectArray = [ jsonObjectOne, jsonObjectTwo ];
 
   let jsonMapper: JsonMapper;
 
@@ -20,10 +26,14 @@ describe('JSON Mapper', () => {
   });
 
   it( 'serialize() maps object to string', () => {
-    expect( jsonMapper.serialize( treeNode )).toEqual( jsonObject );
+    expect( jsonMapper.serialize( treeNodeOne )).toEqual( jsonObjectOne );
+  });
+
+  it( 'deserializeArray() maps string to array of objects', () => {
+    expect( (jsonMapper as any).deserializeArray( jsonObjectArray, TreeNode )).toEqual( treeNodeArray );
   });
 
   it( 'deserialize() maps string to object', () => {
-    expect( (jsonMapper as any).deserialize( jsonObject, TreeNode )).toEqual( treeNode );
+    expect( (jsonMapper as any).deserialize( jsonObjectOne, TreeNode )).toEqual( treeNodeOne );
   });
 });
