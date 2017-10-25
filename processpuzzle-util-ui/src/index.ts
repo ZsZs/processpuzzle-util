@@ -1,1 +1,3 @@
-export * from './process-puzzle-util-ui.module';
+export { TickTockService } from './services';
+export { TickTockComponent } from './components';
+export { TickTockModule } from './tick-tock.module';
