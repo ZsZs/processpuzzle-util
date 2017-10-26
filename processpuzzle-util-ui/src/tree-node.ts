@@ -29,6 +29,18 @@ export class TreeNode {
     childNode.parent = this;
   }
 
+  public compareName( subjectNode: TreeNode, expectedName: string ) {
+    return subjectNode.name === expectedName;
+  }
+  
+  public compareReferencedObject( subjectNode: TreeNode, evaluator: ( referencedObject: any ) => boolean ) {
+    return evaluator( subjectNode.referencedObject );
+  }
+  
+  public compareTitle( subjectNode: TreeNode, expectedTitle: string ) {
+    return subjectNode.title === expectedTitle;
+  }
+  
   public detach(): void {
     if ( !isNullOrUndefined( this._parent )) {
        this._parent.removeChild( this );
@@ -51,48 +63,31 @@ export class TreeNode {
     return foundNode;
   }
 
-  public findDescendantChildByName( name: string ): TreeNode | null {
-    let foundNode = null;
-    this._children.forEach( (child) => {
-      if ( child.name === name ) {
-        foundNode = child;
-      } else if ( this.hasChildren() ) {
-        this.children.forEach( (childNode) => {
-          const node = childNode.findDescendantChildByName( name );
-          if ( !isNullOrUndefined( node )) { foundNode = node; }
-        });
-      }
-    });
+  public findDescendantChild( compareNodeProperty: ( subjectNode: TreeNode, propertyValue: any ) => boolean, propertyValue: any ): TreeNode | null {
+    let foundNode: TreeNode = null;
+    if ( compareNodeProperty( this, propertyValue )) {
+        foundNode = this;
+    } else {
+      this._children.forEach( (child) => {
+         const node = child.findDescendantChild( compareNodeProperty, propertyValue );
+         if ( !isNullOrUndefined( node )) {
+           foundNode = node;
+         }
+      });
+    }
     return foundNode;
+  }
+  
+  public findDescendantChildByName( name: string ): TreeNode | null {
+    return this.findDescendantChild( this.compareName, name );
   }
 
   public findDescendantChildByTitle( title: string ): TreeNode | null {
-    let foundNode = null;
-    this._children.forEach( (child) => {
-      if ( child.title === title ) {
-        foundNode = child;
-      } else if ( this.hasChildren() ) {
-        this.children.forEach( (childNode) => {
-          const node = childNode.findDescendantChildByTitle( title );
-          if ( !isNullOrUndefined( node )) { foundNode = node; }
-        });
-      }
-    });
-    return foundNode;
+    return this.findDescendantChild( this.compareTitle, title );
   }
 
   public findDescendantChildByReferencedObject( evaluator: ( referencedObject: any ) => boolean ): TreeNode | null {
-    if ( evaluator( this.referencedObject )) {
-      return this;
-    }
-
-    this._children.forEach( (child) => {
-       const node = child.findDescendantChildByReferencedObject( evaluator );
-       if ( !isNullOrUndefined( node )) {
-          return node;
-       }
-    });
-    return null;
+    return this.findDescendantChild( this.compareReferencedObject, evaluator );
   }
 
   public hasChildren(): boolean {
@@ -143,6 +138,8 @@ export class TreeNode {
     childNode.parent = null;
   }
 
+  // protected, private helper methods
+  
   // properties
   // @formatter:off
   public get children(): TreeNode[] { return this._children; }

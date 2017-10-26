@@ -1,6 +1,14 @@
 
 import {TreeNode} from './tree-node';
 
+class ReferencedObjectStub {
+  public myText: string;
+  
+  public compareWithMe( otherString: string ): boolean {
+    return this.myText === otherString;
+  }
+}
+
 describe('TreeNode behaviour', () => {
   const rootName = 'Root_Name';
   const rootTitle = 'Root title';
@@ -32,12 +40,7 @@ describe('TreeNode behaviour', () => {
   const grandChildTwoReferencedObject = 'Grandchild two Ref.';
   let grandChildTwoNode: TreeNode;
 
-  const referencedObjectStub = {
-    myText: 'Grandchild two Ref.',
-    compareWithMe( otherString: string ): boolean {
-      return grandChildOneReferencedObject === otherString;
-    }
-  };
+  const referencedObjectStub = new ReferencedObjectStub();
 
   beforeEach(() => {
     childOneNode = new TreeNode( childOneName, childOneTitle, childOneReferencedObject );
@@ -58,14 +61,27 @@ describe('TreeNode behaviour', () => {
     expect( rootNode.title ).toBe( rootTitle );
   });
 
+  it('parent, referencedObject properties can be set', () => {
+    rootNode.parent = childOneNode;
+    expect( rootNode.parent ).toBe( childOneNode );
+    
+    rootNode.referencedObject = childOneNode;
+    expect( rootNode.referencedObject ).toBe( childOneNode );
+  });
+
   it('can reference an arbitrary object', () => {
     expect( childOneNode.referencedObject ).toBe( childOneReferencedObject );
+    expect( childTwoNode.referencedObject ).toBe( childTwoReferencedObject );
   });
 
   it( 'can have children', () => {
     expect( rootNode.children ).toContain( childOneNode );
     expect( rootNode.children ).toContain( childTwoNode );
     expect( rootNode.children ).toContain( childThreeNode );
+  });
+
+  it( 'can be verified if a node has children', () => {
+    expect( rootNode.hasChildren() ).toBe( true );
   });
 
   it( 'children can have children', () => {
@@ -130,15 +146,23 @@ describe('TreeNode behaviour', () => {
     expect( rootNode.findDescendantChildByTitle( grandChildTwoTitle ) ).toBe( grandChildTwoNode );
   });
 
-  xit( 'descendant child can be find by referenced object', () => {
-    expect( rootNode.findDescendantChildByReferencedObject( referencedObjectStub.compareWithMe ) ).toBe( grandChildOneNode );
-    expect( rootNode.findDescendantChildByReferencedObject( referencedObjectStub.compareWithMe ) ).toBe( grandChildTwoNode );
+  it( 'descendant child can be find by referenced object', () => {
+    referencedObjectStub.myText = grandChildOneReferencedObject;
+    expect( rootNode.findDescendantChildByReferencedObject( referencedObjectStub.compareWithMe.bind( referencedObjectStub ))).toBe( grandChildOneNode );
+    
+    referencedObjectStub.myText = grandChildTwoReferencedObject;
+    expect( rootNode.findDescendantChildByReferencedObject( referencedObjectStub.compareWithMe.bind( referencedObjectStub ))).toBe( grandChildTwoNode );
   });
 
   it( 'can be detached from the parent', () => {
     childOneNode.detach();
     expect( childOneNode.parent ).not.toBe( rootNode );
     expect( rootNode.children ).not.toContain( childOneNode );
+  });
+
+  it( 'detach doesnt effect root', () => {
+    rootNode.detach();
+    expect( rootNode.parent ).toBeUndefined();
   });
 
   it( 'can be deserialized from JSON', () => {
