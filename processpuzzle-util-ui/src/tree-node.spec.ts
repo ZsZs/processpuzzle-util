@@ -35,10 +35,10 @@ describe('TreeNode behaviour', () => {
   const referencedObjectStub = {
     myText: 'Grandchild two Ref.',
     compareWithMe( otherString: string ): boolean {
-      return 'Grandchild two Ref.' === otherString;
+      return grandChildOneReferencedObject === otherString;
     }
   };
-    
+
   beforeEach(() => {
     childOneNode = new TreeNode( childOneName, childOneTitle, childOneReferencedObject );
     childTwoNode = new TreeNode( childTwoName, childTwoTitle, childTwoReferencedObject );

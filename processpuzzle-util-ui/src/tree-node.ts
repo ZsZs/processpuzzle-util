@@ -82,19 +82,17 @@ export class TreeNode {
   }
 
   public findDescendantChildByReferencedObject( evaluator: ( referencedObject: any ) => boolean ): TreeNode | null {
-    let foundNode = null;
+    if ( evaluator( this.referencedObject )) {
+      return this;
+    }
+
     this._children.forEach( (child) => {
-      if ( evaluator( child.referencedObject )) {
-        foundNode = child;
-        return foundNode;
-      } else if ( this.hasChildren() ) {
-        this.children.forEach( (childNode) => {
-          const node = childNode.findDescendantChildByReferencedObject( evaluator );
-          if ( !isNullOrUndefined( node )) { foundNode = node; }
-        });
-      }
+       const node = child.findDescendantChildByReferencedObject( evaluator );
+       if ( !isNullOrUndefined( node )) {
+          return node;
+       }
     });
-    return foundNode;
+    return null;
   }
 
   public hasChildren(): boolean {
