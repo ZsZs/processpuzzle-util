@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { JsonMapper } from './json-mapper';
-import { TreeNode } from './tree-node';
+import { TreeNode } from '../tree-node/tree-node';
 
 describe('JSON Mapper', () => {
   const TREE_NODE_ONE_NAME = 'SampleNodeOne';

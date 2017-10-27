@@ -45,6 +45,7 @@
     "explorer": "source-map-explorer ./dist/index.umd.js",
     "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
     "lint": "tslint --project tsconfig.json --format json --out target/issues.json",
+    "lint-watch": "tslint --project tsconfig.json",
     "ngcompile": "node_modules/.bin/ngc -p tsconfig-aot.json",
     "postversion": "git push && git push --tags",
     "prebuild": "rimraf dist tmp",

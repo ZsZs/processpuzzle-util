@@ -1,3 +1,4 @@
-export { TickTockService } from './services';
+export { JsonMapper, TreeNode } from './classes';
+export { HttpLoggingInterceptor, TickTockService } from './services';
 export { TickTockComponent } from './components';
 export { TickTockModule } from './tick-tock.module';
