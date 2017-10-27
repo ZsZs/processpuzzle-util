@@ -6,7 +6,7 @@ export class JsonMapper {
   private readonly jsonConvert: JsonConvert = new JsonConvert();
 
   constructor() {
-    this.jsonConvert.operationMode = OperationMode.LOGGING; // print some debug data
+    this.jsonConvert.operationMode = OperationMode.ENABLE; // OperationMode.LOGGING, prints some debug data
     this.jsonConvert.ignorePrimitiveChecks = false; // don't allow assigning number to string etc.
     this.jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL; // never allow null
   }
