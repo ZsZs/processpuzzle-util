@@ -15,5 +15,5 @@ import { TickTockService } from './services';
     TickTockComponent,
   ]
 })
-export class TickTockModule {
+export class ProcessPuzzleUtilkModule {
 }

@@ -1,4 +1,4 @@
 export { JsonMapper, TreeNode } from './classes';
 export { HttpLoggingInterceptor, TickTockService } from './services';
 export { TickTockComponent } from './components';
-export { TickTockModule } from './tick-tock.module';
+export { ProcessPuzzleUtilkModule } from './processpuzzle-util.module';
