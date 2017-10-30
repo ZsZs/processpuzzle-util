@@ -1,9 +1,31 @@
 {
-  "extends": "tslint-config-mwl",
+  "extends": ["tslint:recommended"],
+  "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
-    "directive-selector": [true, "attribute", "pp-util", "camelCase"],
-    "component-selector": [true, "element", "pp-util", "kebab-case"],
-    "pipe-naming": [true, "camelCase", "pp-util"],
-    "no-inferrable-types": false
+    "component-class-suffix": true,
+    "component-selector": [true, "element", "pp", "kebab-case"],
+    "directive-class-suffix": true,
+    "directive-selector": [true, "attribute", "pp", "camelCase"],
+    "interface-name": false,
+    "invoke-injectable": true,
+    "max-line-length": [true, 200],
+    "no-access-missing-member": false,
+    "no-attribute-parameter-decorator": true,
+    "no-console": [true, "time", "timeEnd", "trace"],
+    "no-forward-ref": true,
+    "no-inferrable-types": false,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-string-literal": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "pipe-naming": [true, "camelCase", "pp"],
+    "quotemark": [true, "single", "avoid-escape"],
+    "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
+    "use-host-property-decorator": true,
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-pipe-transform-interface": true,
+    "variable-name": [true, "allow-leading-underscore", "ban-keywords", "check-format"]
   }
 }

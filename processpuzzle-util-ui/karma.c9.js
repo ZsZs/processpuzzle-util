@@ -33,6 +33,8 @@ export default (config) => {
       }
     },
     reporters: ['mocha', 'coverage-istanbul'],
+    hostname: process.env.IP,
+    port: process.env.PORT,
     logLevel: config.LOG_WARN,
     browsers: ['ChromeHeadless'],
     browserConsoleLogOptions: {
