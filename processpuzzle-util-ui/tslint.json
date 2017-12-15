@@ -7,7 +7,6 @@
     "directive-class-suffix": true,
     "directive-selector": [true, "attribute", "pp", "camelCase"],
     "interface-name": false,
-    "invoke-injectable": true,
     "max-line-length": [true, 200],
     "no-access-missing-member": false,
     "no-attribute-parameter-decorator": true,
