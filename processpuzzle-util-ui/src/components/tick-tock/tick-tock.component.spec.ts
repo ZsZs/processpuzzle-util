@@ -6,7 +6,7 @@ import {
 
 import { By } from '@angular/platform-browser';
 
-import { ProcessPuzzleUtilkModule } from '../../';
+import { ProcessPuzzleUtilModule } from '../../';
 import { TickTockComponent } from './tick-tock.component';
 
 describe('TickTockComponent', () => {
@@ -18,7 +18,7 @@ describe('TickTockComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [ ProcessPuzzleUtilkModule ]
+        imports: [ ProcessPuzzleUtilModule ]
       }).compileComponents().then(() => { /* Don't do anything */ });
     })
   );

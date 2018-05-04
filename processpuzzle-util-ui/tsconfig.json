@@ -25,13 +25,13 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "demo/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts",
     "node_modules",
-    "demo",
-    "dist"
+    "playground",
+    "dist",
+    "target"
   ]
 }

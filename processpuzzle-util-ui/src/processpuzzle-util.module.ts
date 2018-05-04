@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { HttpLoggingInterceptor } from './services';
-import { TickTockComponent } from './components';
-import { TickTockService } from './services';
+
+import { HttpLoggingInterceptor } from './services/http-logging/http-logging';
+import { TickTockComponent } from './components/tick-tock/tick-tock.component';
+import { TickTockService } from './services/tick-tock/tick-tock.service';
 
 @NgModule({
   providers: [
@@ -15,5 +16,6 @@ import { TickTockService } from './services';
     TickTockComponent,
   ]
 })
-export class ProcessPuzzleUtilkModule {
+
+export class ProcessPuzzleUtilModule {
 }

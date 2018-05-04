@@ -7,12 +7,13 @@ import * as rxjsExternals from 'webpack-rxjs-externals';
 const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
 
 export default {
+  mode: 'production',
   entry: {
     'index.umd': './src/index.ts',
     'index.umd.min': './src/index.ts',
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'target/dist'),
     filename: '[name].js',
     libraryTarget: 'umd',
     library: 'ticktock'
@@ -68,15 +69,7 @@ export default {
     ]
   },
   plugins: [
-    new webpack.ContextReplacementPlugin(
-      /angular(\\|\/)core(\\|\/)@angular/,
-      path.join(__dirname, 'src')
-    ),
-
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      sourceMap: true
-    }),
+    new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, path.join(__dirname, './src' )),
 
     new webpack.BannerPlugin({
       banner: `
@@ -91,6 +84,5 @@ export default {
       raw: true,
       entryOnly: true
     })
-
   ]
 } as webpack.Configuration;

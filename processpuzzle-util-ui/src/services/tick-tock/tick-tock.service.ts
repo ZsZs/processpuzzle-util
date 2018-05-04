@@ -6,11 +6,14 @@ import { Observable } from 'rxjs/Rx';
  */
 @Injectable()
 export class TickTockService {
+   /**
+    * Set up timer frequency.
+    */
+   private readonly TIMEOUT: number = 1000;
 
   /**
    * Extend time value with zero if required.
    * @param value
-   * @returns {string}
    */
   private static formatTimeNumber(value: number): string {
     const stringValue = value.toString();
@@ -19,7 +22,6 @@ export class TickTockService {
 
   /**
    * Get current time string.
-   * @returns {string}
    */
   private static getNowString(): string {
     const date = new Date();
@@ -32,14 +34,7 @@ export class TickTockService {
   }
 
   /**
-   * Set up timer frequency.
-   * @type {number}
-   */
-  private readonly TIMEOUT: number = 1000;
-
-  /**
    * Get current time observable.
-   * @returns Observable<string>
    */
   public getTick(): Observable<string> {
     return Observable
