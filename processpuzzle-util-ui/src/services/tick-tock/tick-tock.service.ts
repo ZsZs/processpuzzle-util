@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 /**
  * TickTockService class.
@@ -37,8 +38,8 @@ export class TickTockService {
    * Get current time observable.
    */
   public getTick(): Observable<string> {
-    return Observable
-      .timer(0, this.TIMEOUT)
-      .map((tick) => TickTockService.getNowString());
+    return timer( 0, this.TIMEOUT ).pipe(
+       map(( tick ) => TickTockService.getNowString())
+    );
   }
 }
