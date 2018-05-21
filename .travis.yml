@@ -57,6 +57,7 @@ before_script:
 - ng --version
 - npm install --prefix ./processpuzzle-util-ui
 - npm update --prefix ./processpuzzle-util-ui
+- npm rebuild node-sass --prefix ./processpuzzle-util-ui
 
 script:
 - mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings travis-maven-settings.xml
