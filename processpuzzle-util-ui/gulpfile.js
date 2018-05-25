@@ -1,7 +1,13 @@
 const gulp = require('gulp');
 const sass = require('node-sass');
+const path = require('path');
 const inlineTemplates = require('gulp-inline-ng2-template');
 const exec = require('child_process').exec;
+const rootFolder = path.join( __dirname );
+const srcFolder = path.join( rootFolder, 'src' );
+const tmpFolder = path.join( rootFolder, 'target/.tmp' );
+const buildFolder = path.join( rootFolder, 'target/build' );
+const distFolder = path.join( rootFolder, 'target/dist' );
 
 /**
  * Inline templates configuration.
@@ -9,7 +15,7 @@ const exec = require('child_process').exec;
  */
 const INLINE_TEMPLATES = {
   SRC: './src/**/*.ts',
-  DIST: './tmp/src-inlined',
+  DIST: './target/tmp/src-inlined',
   CONFIG: {
     base: '/src',
     target: 'es6',
@@ -22,10 +28,14 @@ const INLINE_TEMPLATES = {
  * Inline external HTML and SCSS templates into Angular component files.
  * @see: https://github.com/ludohenin/gulp-inline-ng2-template
  */
-gulp.task('inline-templates', () => {
+gulp.task('inline-templates', ['copy:package-json'], () => {
   return gulp.src(INLINE_TEMPLATES.SRC)
     .pipe(inlineTemplates(INLINE_TEMPLATES.CONFIG))
     .pipe(gulp.dest(INLINE_TEMPLATES.DIST));
+});
+
+gulp.task( 'copy:package-json', function () {
+  return gulp.src( [ srcFolder + '/package.json'] ).pipe( gulp.dest( distFolder ));
 });
 
 /**
@@ -55,9 +65,6 @@ gulp.task('build:esm:watch', ['build:esm'], () => {
  * @see https://github.com/sass/node-sass
  */
 function compileSass(path, ext, file, callback) {
-  let compiledCss = sass.renderSync({
-    file: path,
-    outputStyle: 'compressed',
-  });
+  const compiledCss = sass.renderSync({ file: path, outputStyle: 'compressed' });
   callback(null, compiledCss.css);
 }

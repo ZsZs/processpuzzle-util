@@ -3,7 +3,7 @@ import {TreeNode} from './tree-node';
 
 class ReferencedObjectStub {
   public myText: string;
-  
+
   public compareWithMe( otherString: string ): boolean {
     return this.myText === otherString;
   }

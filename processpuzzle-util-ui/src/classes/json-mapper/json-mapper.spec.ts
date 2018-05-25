@@ -11,8 +11,8 @@ describe('JSON Mapper', () => {
   const treeNodeOne = new TreeNode( TREE_NODE_ONE_NAME, TREE_NODE_ONE_TITLE );
   const treeNodeTwo = new TreeNode( TREE_NODE_TWO_NAME, TREE_NODE_TWO_TITLE );
   const treeNodeArray = [ treeNodeOne, treeNodeTwo ];
-  const jsonObjectOne = { name: 'SampleNodeOne', title: 'Sample node one.', children: [] };
-  const jsonObjectTwo = { name: 'SampleNodeTwo', title: 'Sample node two.', children: [] };
+  const jsonObjectOne = { name: 'SampleNodeOne', title: 'Sample node one.', children: [] as string[] };
+  const jsonObjectTwo = { name: 'SampleNodeTwo', title: 'Sample node two.', children: [] as string[] };
   const jsonObjectArray = [ jsonObjectOne, jsonObjectTwo ];
 
   let jsonMapper: JsonMapper;

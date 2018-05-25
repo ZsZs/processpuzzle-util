@@ -3,18 +3,19 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 
 @JsonObject
 export class TreeNode {
+   // private instance fields
+   @JsonProperty( 'name', String ) private _name: string | undefined = undefined;
+   @JsonProperty( 'title', String ) private _title: string | undefined = undefined;
+   @JsonProperty( 'children', [TreeNode], false ) private _children: TreeNode[] = [];
+   @JsonProperty( 'parent', TreeNode, true ) private _parent: TreeNode | null;
+   private _referencedObject: any;
+
   // static methods
   public static parse( json: string ): TreeNode {
     const tree = JSON.parse( json );
     return tree;
   }
 
-  // private instance fields
-  @JsonProperty( 'name', String ) private _name: string | undefined = undefined;
-  @JsonProperty( 'title', String ) private _title: string | undefined = undefined;
-  @JsonProperty( 'children', [TreeNode], false ) private _children: TreeNode[] = [];
-  @JsonProperty( 'parent', TreeNode, true ) private _parent: TreeNode | null;
-  private _referencedObject: any;
 
   // constructors
   constructor( nodeName: string, nodeTitle: string, nodeReferencedObject?: any ) {

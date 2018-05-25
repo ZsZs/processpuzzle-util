@@ -31,7 +31,7 @@ before_install:
 - mkdir -p $HOME/.scm/ && cp ./git-settings.xml $HOME/.scm/git-settings.xml
 - nvm install node
 - nvm use node
-- npm install -g npm@5.6.0
+- npm install -g npm@latest
 - npm --version
 - if [ ${TRAVIS_BRANCH} == development ]; then DEPLOYMENT_ENVIRONMENT=dev; elif [
   -n ${TRAVIS_TAG} ]; then DEPLOYMENT_ENVIRONMENT=prod; else DEPLOYMENT_ENVIRONMENT=integ;
@@ -57,6 +57,7 @@ before_script:
 - ng --version
 - npm install --prefix ./processpuzzle-util-ui
 - npm update --prefix ./processpuzzle-util-ui
+- npm rebuild node-sass --force --prefix ./processpuzzle-util-ui
 
 script:
 - mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings travis-maven-settings.xml

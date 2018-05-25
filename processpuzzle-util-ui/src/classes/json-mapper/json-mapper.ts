@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {JsonConvert, OperationMode, ValueCheckingMode} from 'json2typescript';
+import {JsonConvert} from 'json2typescript';
+import {OperationMode, ValueCheckingMode} from 'json2typescript';
 
 @Injectable()
 export class JsonMapper {
