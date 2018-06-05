@@ -1,90 +1,27 @@
-# ProcessPuzzle Util
-[![Build Status](https://travis-ci.org/ZsZs/processpuzzle-util.svg?branch=master)](https://travis-ci.org/ZsZs/processpuzzle-util)
-[![codecov](https://codecov.io/gh/ZsZs/processpuzzle-util/branch/master/graph/badge.svg)](https://codecov.io/gh/ZsZs/processpuzzle-util)
-[![npm version](https://badge.fury.io/js/processpuzzle-util-ui.svg)](http://badge.fury.io/js/processpuzzle-util-ui)
-[![devDependency Status](https://david-dm.org/ZsZs/processpuzzle-util/dev-status.svg)](https://david-dm.org/ZsZs/processpuzzle-util?type=dev)
-[![GitHub issues](https://img.shields.io/github/issues/ZsZs/processpuzzle-util.svg)](https://github.com/ZsZs/processpuzzle-util/issues)
-[![GitHub stars](https://img.shields.io/github/stars/ZsZs/processpuzzle-util.svg)](https://github.com/ZsZs/processpuzzle-util/stargazers)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ZsZs/processpuzzle-util/master/LICENSE)
+# ProcesspuzzleUtilUi
 
-## Demo
-https://ZsZs.github.io/processpuzzle-util/
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
-## Table of contents
+## Development server
 
-- [About](#about)
-- [Installation](#installation)
-- [Documentation](#documentation)
-- [Development](#development)
-- [License](#license)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## About
+## Code scaffolding
 
-Utility functions for ProcessPuzzle business platform.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Installation
+## Build
 
-Install through npm:
-```
-npm install --save processpuzzle-util-ui
-```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-Then include in your apps module:
+## Running unit tests
 
-```typescript
-import { NgModule } from '@angular/core';
-import { ProcessPuzzleUtilUiModule } from 'processpuzzle-util-ui';
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-@NgModule({
-  imports: [
-    ProcessPuzzleUtilUiModule.forRoot()
-  ]
-})
-export class MyModule {}
-```
+## Running end-to-end tests
 
-Finally use in one of your apps components:
-```typescript
-import { Component } from '@angular/core';
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-@Component({
-  template: '<hello-world></hello-world>'
-})
-export class MyComponent {}
-```
+## Further help
 
-You may also find it useful to view the [demo source](https://github.com/ZsZs/processpuzzle-util/blob/master/demo/demo.component.ts).
-
-### Usage without a module bundler
-```
-<script src="node_modules/processpuzzle-util-ui/bundles/processpuzzle-util-ui.umd.js"></script>
-<script>
-    // everything is exported processpuzzleUtilUi namespace
-</script>
-```
-
-## Documentation
-All documentation is auto-generated from the source via [compodoc](https://compodoc.github.io/compodoc/) and can be viewed here:
-https://ZsZs.github.io/processpuzzle-util/docs/
-
-## Development
-
-### Prepare your environment
-* Install [Node.js](http://nodejs.org/) and NPM
-* Install local dev dependencies: `npm install` while current directory is this repo
-
-### Development server
-Run `npm start` to start a development server on port 8000 with auto reload + tests.
-
-### Testing
-Run `npm test` to run tests once or `npm run test:watch` to continually run tests.
-
-### Release
-* Bump the version in package.json (once the module hits 1.0 this will become automatic)
-```bash
-npm run release
-```
-
-## License
-
-MIT
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
