@@ -13,4 +13,5 @@
 /**/.prettierrc
 /**/.project
 /**/.settings
+/**/package-lock.json
 /processpuzzle-util-services/src/main/resources/public/
