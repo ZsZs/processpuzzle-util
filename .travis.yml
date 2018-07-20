@@ -13,6 +13,8 @@ notifications:
   email:
     on_failure: change
     on_success: change
+after_success:
+  - cd dist
 deploy:
   provider: npm
   email: zsolt.zsuffa@gmail.com
@@ -22,4 +24,4 @@ deploy:
   on:
     branch: master
     tags: true
-    repo: dist/processpuzzle-util-lib
+    repo: processpuzzle-util-lib
