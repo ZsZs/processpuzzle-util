@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "npm-pack": "cd dist/processpuzzle-util-lib && npm pack",
-    "postinstall": "node version.js",
+    "postinstall": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js",
     "test": "npm run test-app && npm run test-lib",
     "test-app": "ng test processpuzzle-util-app --browsers ChromeHeadless --code-coverage",
     "test-app-watch": "ng test processpuzzle-util-app --browsers Chrome --watch",
