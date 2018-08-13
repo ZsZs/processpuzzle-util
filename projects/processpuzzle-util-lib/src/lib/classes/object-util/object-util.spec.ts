@@ -4,8 +4,8 @@ describe('ObjectUtil behaviour', () => {
    const nullObject: any = null;
    const undefinedObject = undefined ;
    const notNullObject: any = 'something';
-   const stringObject: string = 'some string';
-   const numberObject: number = 128;
+   const stringObject = 'some string';
+   const numberObject = 128;
    const classInstance: Date = new Date();
 
    beforeEach(() => {});

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpSentEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { TestBed, inject, async } from '@angular/core/testing';
@@ -8,6 +8,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpLoggingInterceptor } from './http-logging';
 
 import { TreeNode } from '../../classes/tree-node/tree-node';
+import { NGXLogger, NGXLoggerMock } from 'ngx-logger';
 
 @Injectable()
 export class AnyService {
@@ -22,29 +23,37 @@ export class AnyService {
 
 describe('HttpLoggingInterceptor', () => {
   const expectedNode = new TreeNode( 'node1', 'node one' );
-  let logger: HttpLoggingInterceptor;
-  let httpMock: HttpTestingController;
-  let service: AnyService;
+//  let httpLogger: HttpLoggingInterceptor;
+//  let httpMock: HttpTestingController;
+//  let logger: NGXLogger;
+//  let service: AnyService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ AnyService, { provide: HTTP_INTERCEPTORS, useClass: HttpLoggingInterceptor, multi: true }]
+      providers: [ AnyService, { provide: HTTP_INTERCEPTORS, useClass: HttpLoggingInterceptor, multi: true}, {provide: NGXLogger, useClass: NGXLoggerMock, multi: false} ]
     });
 
-    service = TestBed.get( AnyService );
-    logger = TestBed.get( HttpLoggingInterceptor );
-    httpMock = TestBed.get( HttpTestingController );
+//    logger = TestBed.get( NGXLogger );
+//    service = TestBed.get( AnyService );
+//    httpLogger = TestBed.get( HttpLoggingInterceptor );
+//    httpMock = TestBed.get( HttpTestingController );
   });
 
-  it('should log HTTP requests', inject( [HttpTestingController, AnyService], (httpMock: HttpTestingController, service: AnyService) => {
+  afterEach(inject([HttpTestingController], ( httpMock: HttpTestingController) => {
+    httpMock.verify();
+  }));
+
+  it('should log HTTP requests', inject([AnyService, HttpTestingController, NGXLogger], (service: AnyService, httpMock: HttpTestingController, logger: NGXLoggerMock ) => {
+    spyOn( logger, 'info' );
+
     service.getNode().subscribe( response => {
+//      expect( logger.info ).toHaveBeenCalled();
       expect( true ).toBeTruthy();
     });
-    
+
     const httpRequest = httpMock.expectOne(`${service.ROOT_URL}/node`);
 
     httpRequest.flush( expectedNode );
-    httpMock.verify();
   }));
 });
