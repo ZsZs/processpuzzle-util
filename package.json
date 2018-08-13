@@ -1,6 +1,6 @@
 {
   "name": "processpuzzle-util-app",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,6 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "npm-pack": "cd dist/processpuzzle-util-lib && npm pack",
+    "postinstall": "node version.js",
     "test": "npm run test-app && npm run test-lib",
     "test-app": "ng test processpuzzle-util-app --browsers ChromeHeadless --code-coverage",
     "test-app-watch": "ng test processpuzzle-util-app --browsers Chrome --watch",
@@ -51,6 +52,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "10.5.8",
     "codelyzer": "~4.4.3",
+    "git-describe": "^4.0.3",
     "jasmine-core": "~3.2.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
