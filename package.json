@@ -12,6 +12,8 @@
     "build-lib-prod": "ng build processpuzzle-util-lib --configuration=production",
     "bump-lib-patch-version": "cd projects/processpuzzle-util-lib && npm version patch && cd ../../",
     "bump-patch-version": "npm version patch && npm run bump-lib-patch-version && git add . && git commit -m \"commit library version bump\" && git push && git push --tags",
+    "bump-lib-minor-version": "cd projects/processpuzzle-util-lib && npm version minor && cd ../../",
+    "bump-minor-version": "npm version minor && npm run bump-lib-minor-version && git add . && git commit -m \"commit library version bump\" && git push && git push --tags",
     "ci": "npm run lint && npm run test && npm run build-prod && npm run npm-pack",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -25,7 +27,9 @@
     "package": "npm run build-dev && npm run npm-pack",
     "publish": "cd dist/processpuzzle-util-lib && npm publish",
     "start-c9": "ng serve --host 0.0.0.0 --port 8080 --disableHostCheck",
-    "version-stamp-app": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js"
+    "version-stamp": "npm run version-stamp-app && npm run version-stamp-lib",
+    "version-stamp-app": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js",
+    "version-stamp-lib": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js projects/processpuzzle-util-lib/src"
   },
   "private": true,
   "dependencies": {

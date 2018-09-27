@@ -10,7 +10,12 @@ const gitInfo = gitDescribeSync({
 
 gitInfo.version = version;
 
-const file = resolve(__dirname, '../../../../../../', 'src', 'environments', 'version.ts');
+// determine version file's folder from command line argument
+var versionFileFolder = 'src/environments';
+if( process.argv[2] != null ) versionFileFolder = process.argv[2];
+
+const file = resolve( ".", versionFileFolder, 'version.ts' );
+
 writeFileSync(file,
   `// IMPORTANT: THIS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECKIN!
 /* tslint:disable */
@@ -18,4 +23,5 @@ export const VERSION = ${JSON.stringify(gitInfo, null, 4)};
 /* tslint:enable */
 `, { encoding: 'utf-8' });
 
-console.log(`Wrote version info ${gitInfo.raw} to ${relative(resolve(__dirname, '..'), file)}`);
+//console.log(`Wrote version info ${gitInfo.raw} to ${relative(resolve(__dirname, '..'), file)}`);
+console.log(`Wrote version info ${gitInfo.raw} to ${ resolve( file )}`);
