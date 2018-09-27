@@ -11,7 +11,7 @@
     "build-lib-dev": "ng build processpuzzle-util-lib --configuration=development",
     "build-lib-prod": "ng build processpuzzle-util-lib --configuration=production",
     "bump-lib-patch-version": "cd projects/processpuzzle-util-lib && npm version patch && cd ../../",
-    "bump-patch-version": "npm version patch && npm run bump-lib-patch-version && git add . && git push && git push --tags",
+    "bump-patch-version": "npm version patch && npm run bump-lib-patch-version && git add . && git commit -m 'library version bumped' && git push && git push --tags",
     "ci": "npm run lint && npm run test && npm run build-prod && npm run npm-pack",
     "lint": "ng lint",
     "e2e": "ng e2e",
