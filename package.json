@@ -10,7 +10,7 @@
     "build-app-prod": "ng build processpuzzle-util-app",
     "build-lib-dev": "ng build processpuzzle-util-lib --configuration=development",
     "build-lib-prod": "ng build processpuzzle-util-lib --configuration=production",
-    "bump-lib-patch-version": "cd projects/processpuzzle-util-lib && npm version patch",
+    "bump-lib-patch-version": "cd projects/processpuzzle-util-lib && npm version patch && cd ../../",
     "bump-patch-version": "npm version patch && npm run bump-lib-patch-version && git push && git push --tags",
     "ci": "npm run lint && npm run test && npm run build-prod && npm run npm-pack",
     "lint": "ng lint",
