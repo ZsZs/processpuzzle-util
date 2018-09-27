@@ -10,11 +10,13 @@
     "build-app-prod": "ng build processpuzzle-util-app",
     "build-lib-dev": "ng build processpuzzle-util-lib --configuration=development",
     "build-lib-prod": "ng build processpuzzle-util-lib --configuration=production",
+    "bump-lib-patch-version": "cd dist/processpuzzle-util-lib && npm version patch",
+    "bump-patch-version": "npm version patch && npm run bump-lib-patch-version",
     "ci": "npm run lint && npm run test && npm run build-prod && npm run npm-pack",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "npm-pack": "cd dist/processpuzzle-util-lib && npm pack",
-    "postinstall": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js",
+    "postinstall": "npm run version-stamp-app",
     "test": "npm run test-app && npm run test-lib",
     "test-app": "ng test processpuzzle-util-app --browsers ChromeHeadless --code-coverage",
     "test-app-watch": "ng test processpuzzle-util-app --browsers Chrome --watch",
@@ -23,7 +25,8 @@
     "package": "npm run build-dev && npm run npm-pack",
     "postversion": "git push && git push --tags",
     "publish": "cd dist/processpuzzle-util-lib && npm publish",
-    "start-c9": "ng serve --host 0.0.0.0 --port 8080 --disableHostCheck"
+    "start-c9": "ng serve --host 0.0.0.0 --port 8080 --disableHostCheck",
+    "version-stamp-app": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js"
   },
   "private": true,
   "dependencies": {
