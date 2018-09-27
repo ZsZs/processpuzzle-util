@@ -23,6 +23,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+src/environments/version.ts
 
 # nyc test coverage
 .nyc_output
