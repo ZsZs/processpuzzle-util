@@ -13,8 +13,7 @@ notifications:
   email:
     on_failure: change
     on_success: change
-after_success:
-  - cd dist
+before_deploy: "cd dist/processpuzzle-util-lib"
 deploy:
   provider: npm
   email: zsolt.zsuffa@gmail.com
