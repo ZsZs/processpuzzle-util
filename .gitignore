@@ -23,6 +23,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+projects/processpuzzle-util-lib/src/version.ts
 src/environments/version.ts
 
 # nyc test coverage
