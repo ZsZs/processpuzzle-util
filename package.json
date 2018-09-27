@@ -23,7 +23,6 @@
     "test-lib": "ng test processpuzzle-util-lib --browsers ChromeHeadless --configuration=unit-test --code-coverage",
     "test-lib-watch": "ng test processpuzzle-util-lib --browsers Chrome --watch --configuration=unit-test",
     "package": "npm run build-dev && npm run npm-pack",
-//    "postversion": "git push && git push --tags",
     "publish": "cd dist/processpuzzle-util-lib && npm publish",
     "start-c9": "ng serve --host 0.0.0.0 --port 8080 --disableHostCheck",
     "version-stamp-app": "node projects/processpuzzle-util-lib/src/lib/classes/version-stamp/version-stamp.js"
