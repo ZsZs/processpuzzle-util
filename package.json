@@ -1,6 +1,9 @@
 {
   "name": "processpuzzle-util-app",
-  "version": "0.1.10",
+  "version": "0.1.11",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
