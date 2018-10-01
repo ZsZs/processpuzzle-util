@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import { ObjectUtil } from '../object-util/object-util';
 
+@Injectable()
 export class UrlBuilder {
   constructor( private environment: any, private serviceProperties: string, private resourcePath: string ) {}
 
