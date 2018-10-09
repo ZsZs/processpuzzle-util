@@ -8,7 +8,8 @@ export const environment = {
   contactService: {
     protocol: 'http:',
     host: 'localhost:8124',
-    contextPath: 'server/api'
+    contextPath: 'server/api',
+    resourcePath: 'contacts'
   },
 
   documentService: {

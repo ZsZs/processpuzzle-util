@@ -1,6 +1,6 @@
 import {inject, TestBed} from '@angular/core/testing';
 import { UrlBuilder } from './url-builder';
-import {ProcesspuzzleUtilUiLibModule} from '../../processpuzzle-util-ui-lib.module';
+import {ProcesspuzzleUtilLibModule} from '../../processpuzzle-util-lib.module';
 import {RemoteApiConfigurationService} from './remote-api-configuration';
 
 describe('UrlBuilder', () => {
@@ -23,5 +23,9 @@ describe('UrlBuilder', () => {
 
   it( 'buildResourceUrl() compiles full URL with resource path', inject([UrlBuilder], (service: UrlBuilder) => {
     expect( service.buildResourceUrl()).toEqual( 'http://localhost:8124/server/api/documents' );
+  }));
+
+  it( 'buildResourceUrl(), if given, adds subresource to the path', inject([UrlBuilder], (service: UrlBuilder) => {
+    expect( service.buildResourceUrl( 'subResource' )).toEqual( 'http://localhost:8124/server/api/documents/subResource' );
   }));
 });

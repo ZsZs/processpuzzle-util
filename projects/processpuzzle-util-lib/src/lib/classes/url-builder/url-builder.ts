@@ -4,7 +4,7 @@ import { RemoteApiConfiguration, RemoteApiConfigurationService} from './remote-a
 
 @Injectable({ providedIn: 'root' })
 export class UrlBuilder {
-  constructor( @Inject( RemoteApiConfigurationService ) private apiConf: RemoteApiConfiguration ) {}
+  constructor( @Inject( RemoteApiConfigurationService ) public apiConf: RemoteApiConfiguration ) {}
 
   public buildResourceUrl( subResource?: string ): string {
     let resourceUrl = this.apiConf.protocol;
