@@ -78,5 +78,6 @@ typings/
 .classpath
 .c9/
 *.launch
+.firebase/
 .settings/
 *.sublime-workspace

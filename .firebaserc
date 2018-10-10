@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "production": "processpuzzle-util",
+    "staging": "processpuzzle-util"
+  }
+}
