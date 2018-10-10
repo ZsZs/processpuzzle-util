@@ -22,7 +22,7 @@ deploy:
     project: processpuzzle-util
     message: new development build
     on:
-      branch: development
+      branch: master
       tags: false
   - provider: script
     skip_cleanup: true
