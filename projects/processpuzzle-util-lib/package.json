@@ -1,5 +1,5 @@
 {
-  "name": "processpuzzle-util-lib",
+  "name": "processpuzzle-util",
   "version": "0.2.1",
   "publishConfig": {
     "access": "public"
