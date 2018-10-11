@@ -20,7 +20,7 @@ deploy:
       secure: FxyvD7O+cvHeSbk3Rdp1mFyeWan0AzziGVIXHz+JPw613qkFRypEq5DOOAy9psscuIokBvoQN9aQ7kRciiI7s8fmzAFMn3SxIyULuj7T//dAtc+Q5J6SWQp+RlJEwEXtfyJFPlf64GTBxnv3fg0YvtmzdkFpEIqhV8P1nOHRhjawDPH55OU6+uC2zgbwkchGM1cKlfvcZGjA0auRsl+nY3PMpFOLYYteNPohPdVD4MAtZkRko7UAu0O7p6m72ZYqheSe1UN4Z7IA7WbGsUYasg8lzVAGomNVDDpXNz9fQQXHSSy0mtwH2jjenLExqQEniOHQ9RSEi3iNyh+90egLDkRPIYSnNLz7+9O5tvLUl5bAR8dU/QuAmNbcqRH1Zv+ESwSeTp9eWE/2g+fOlnuZzH+LqpBSdUv15Eh4nIvPWP7iTiyMDLZfQHeekmJYtukvBMPssU8LesoviyAqviKyEilHzq2mgU1Xo+QhAm5jH281628nVnNQzD86FeVPrm3QDUlFSitDE+57mg9TnDTQcvtF9xsRGZZOHm+xMzZpSXdFuJHOiFocLer8e2qdqAqxjEd6h4BVMWJxGyPmDXDvtEDIFA3DHatrpX5uVdTP807ciijeWLKtAYUpEt5SrKgvxCC6YlRexM5DVDYXmyKBWRXiTLQDyb1lfTJ9Lj8Wmv8=
     skip_cleanup: true
     project: processpuzzle-util
-    message: new development build: {{TRAVIS_BUILD_NUMBER}}
+    message: new development build: {TRAVIS_BUILD_NUMBER}
     on:
       branch: master
       tags: false
