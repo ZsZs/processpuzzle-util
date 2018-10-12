@@ -19,6 +19,8 @@ jobs:
     script:
     - npm run ci
   - stage: "release to npm"
+    script:
+    - npm run build-prod
     before_deploy:
     - cd dist/processpuzzle-util-lib
     deploy:
@@ -31,6 +33,8 @@ jobs:
         branch: development
         tags: false
   - stage: "release to firebase"
+    script:
+    - npm run build-prod
     deploy:
       provider: firebase
       token:
@@ -39,5 +43,5 @@ jobs:
       project: processpuzzle-util
       message: development build
       on:
-        branch: master
+        branch: development
         tags: false
