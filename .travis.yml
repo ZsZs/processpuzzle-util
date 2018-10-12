@@ -30,7 +30,7 @@ jobs:
         secure: uYV5w393joJynUYMu8aHNso5sj0ri+oB43iFaxUhUWfEZFyNH5cKGzABP4jYkkJxSDID8P9ytW4JowLfr1F8xUDFlulpaz6WCKtSwL3zFB0xuxne7L9VCsUYfulvgg5cOfr6/CbqKor4d7GboIEVXcnORI66NLWyYXPlGikfusQOe83z8V1GCOwa1DPjAo/qJ4KEbwGDgiHrCLySzTDzsdIZ2UJX8TKEYPrZsFvhiSKbF2HbCpl3yXHquvTu1/cr+GoHIo3njc+pDUZL4y7kCqogIz9HWdRn25fGRyeZTDMbZONKKjrmFkEx3rqmKak/DKbbJkULIhFZgKytvS0CugS8ICY3/VuzigRNRtKlvjv1Fj5ioXtjA7TDxonevLmhZICT3BeWZEGSCbx7djZVq/tedgN9xYNjqQrQ2dfKye/NYi6xQFcFHH9lRVsLdk2XZNmroIG2rUc3WoI/ojj5GmkOlrt3LERkB92cnKdETFIsb7YXkUu9Zz9jQYRTk9wLIG/OBGmFAVNAT+gg4NnWndiNrDOeN8aIAiDA5UAIu1U0hM5STjDatlGKkPYuEyekNgdbIJqAZRnsgAtD2ZfuWsYSd2ykhewem20DEr5m6mHYfg8W1vfja83x2WQxP402tRYpURpyCPH4uhMtdsZbwzIl3k3fCBumMykWdAJtEF4=
       skip_cleanup: true
       on:
-        branch: development
+        branch: master
         tags: false
   - stage: "release to firebase"
     script:
@@ -43,5 +43,5 @@ jobs:
       project: processpuzzle-util
       message: development build
       on:
-        branch: development
+        branch: master
         tags: false
