@@ -8,9 +8,8 @@
     "@angular/cli": "^6.2.4",
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/compiler": "^6.1.9",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  },
-  "dependencies": {
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "json2typescript": "^1.0.6",
     "ngx-logger": "^3.3.3"
   }
 }

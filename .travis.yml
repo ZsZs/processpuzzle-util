@@ -19,6 +19,7 @@ jobs:
     script:
     - npm run ci
   - stage: "release to npm"
+    if: branch = master
     script:
     - npm run build-prod
     before_deploy:
@@ -33,6 +34,7 @@ jobs:
         branch: master
         tags: false
   - stage: "release to firebase"
+    if: branch = master
     script:
     - npm run build-prod
     deploy:
