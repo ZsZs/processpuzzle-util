@@ -1,6 +1,6 @@
 {
   "name": "processpuzzle-util-app",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "publishConfig": {
     "access": "public"
   },
@@ -27,7 +27,7 @@
     "test-app-watch": "ng test processpuzzle-util-app --browsers Chrome --watch",
     "test-lib": "ng test processpuzzle-util-lib --browsers ChromeHeadless --configuration=unit-test --code-coverage",
     "test-lib-watch": "ng test processpuzzle-util-lib --browsers Chrome --watch --configuration=unit-test",
-    "package": "npm run build-dev && npm run npm-pack",
+    "package": "npm run build-prod && npm run npm-pack",
     "publish": "cd dist/processpuzzle-util-lib && npm publish",
     "start-c9": "ng serve --host 0.0.0.0 --port 8080 --disableHostCheck",
     "version-stamp": "npm run version-stamp-app && npm run version-stamp-lib",
