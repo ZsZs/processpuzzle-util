@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlBuilder} from 'processpuzzle-util';
+import { EnvironmentConfigurationService } from 'processpuzzle-util';
 
 @Component({
   selector: 'pp-url-builder',
@@ -7,20 +8,23 @@ import { UrlBuilder} from 'processpuzzle-util';
   styles: []
 })
 export class UrlBuilderComponent implements OnInit {
+  private readonly apiConfigurationProperty = 'contactService';
   protocol: string;
   host: string;
   contextPath: string;
   resourcePath: string;
   url: string;
 
-  constructor( private urlBuilder: UrlBuilder ) { }
+  constructor( private environmentConfigurationService: EnvironmentConfigurationService, private urlBuilder: UrlBuilder ) { }
 
   ngOnInit() {
-    this.protocol = this.urlBuilder.apiConf.protocol;
-    this.host = this.urlBuilder.apiConf.host;
-    this.contextPath = this.urlBuilder.apiConf.contextPath;
-    this.resourcePath = this.urlBuilder.apiConf.resourcePath;
-    this.url = this.urlBuilder.buildResourceUrl( 'subresource' );
+    const apiConf = this.environmentConfigurationService.getEnvironmentProperty( this.apiConfigurationProperty );
+
+    this.protocol = apiConf.protocol;
+    this.host = apiConf.host;
+    this.contextPath = apiConf.contextPath;
+    this.resourcePath = apiConf.resourcePath;
+    this.url = this.urlBuilder.buildResourceUrl( this.apiConfigurationProperty, 'subresource' );
   }
 
 }
