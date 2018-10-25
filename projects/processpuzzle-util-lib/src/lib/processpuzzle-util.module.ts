@@ -4,8 +4,8 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { httpInterceptorProviders } from './http-interceptor-providers';
 import { UrlBuilder } from './services/url-builder/url-builder';
+import { EnvironmentConfigurationService } from './services/environment-configuration/environment-configuration.service';
 import { EnvironmentConfigurationToken } from './services/environment-configuration/environment-configuration';
-import {EnvironmentConfigurationService} from './services/environment-configuration/environment-configuration.service';
 
 @NgModule({
   imports: [LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR})],
@@ -19,8 +19,8 @@ export class ProcesspuzzleUtilModule {
     return {
       ngModule: ProcesspuzzleUtilModule,
       providers: [
-        EnvironmentConfigurationService,
         { provide: EnvironmentConfigurationToken, useValue: env },
+        EnvironmentConfigurationService,
         UrlBuilder
       ]
     };
