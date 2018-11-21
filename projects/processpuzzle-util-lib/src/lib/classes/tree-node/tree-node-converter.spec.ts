@@ -1,9 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed} from '@angular/core/testing';
+import { TreeNode } from './tree-node';
+import { TreeNodeConverter } from './tree-node-converter';
 
-import { JsonMapper } from './json-mapper';
-import { TreeNode } from '../tree-node/tree-node';
-
-describe('JSON Mapper', () => {
+describe('TeeNode Converter', () => {
   const TREE_NODE_ONE_NAME = 'SampleNodeOne';
   const TREE_NODE_ONE_TITLE = 'Sample node one.';
   const TREE_NODE_TWO_NAME = 'SampleNodeTwo';
@@ -24,30 +23,27 @@ describe('JSON Mapper', () => {
     title: 'Sample node one.',
     children: [{
       name: 'ChildNodeOne',
-      title: 'Child node one.',
-      children: [] as TreeNode[]
+      title: 'Child node one.'
     },
     {
       name: 'ChildNodeTwo',
-      title: 'Child node two.',
-      children: [] as TreeNode[]
+      title: 'Child node two.'
     }] as TreeNode[]
   };
   const jsonObjectTwo = { name: 'SampleNodeTwo', title: 'Sample node two.', children: [] as string[] };
   const jsonObjectArray = [ jsonObjectOne, jsonObjectTwo ];
 
-  let jsonMapper: JsonMapper;
+  let treeNodeConverter: TreeNodeConverter;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [JsonMapper]
     });
 
-    jsonMapper = TestBed.get( JsonMapper );
+    treeNodeConverter = new TreeNodeConverter();
   });
 
   it( 'serialize() maps object to string', () => {
-    expect( jsonMapper.serialize( treeNodeOne )).toEqual( jsonObjectOne );
+    expect( treeNodeConverter.serialize( treeNodeOne )).toEqual( jsonObjectOne );
   });
   //
   // it( 'deserialize() maps string to object', () => {

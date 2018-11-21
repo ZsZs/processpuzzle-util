@@ -1,13 +1,13 @@
 import { ObjectUtil } from '../object-util/object-util';
 import {JsonObject, JsonProperty} from 'json2typescript';
 
-@JsonObject
+@JsonObject( 'TreeNode' )
 export class TreeNode {
    // private instance fields
    @JsonProperty( 'name', String ) private _name: string | undefined = undefined;
    @JsonProperty( 'title', String ) private _title: string | undefined = undefined;
-   @JsonProperty( 'children', [TreeNode], false ) private _children: TreeNode[] = [];
-   @JsonProperty( 'parent', TreeNode, true ) private _parent: TreeNode | null;
+   private _children: TreeNode[] = [];
+   private _parent: TreeNode | null | undefined;
    private _referencedObject: any;
 
   // static methods
